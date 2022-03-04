@@ -1,0 +1,2 @@
+export const IMAGE_FETCHED = 'IMAGE_FETCHED';
+export const PROJECTS_FETCHED = 'PROJECTS_FETCHED';

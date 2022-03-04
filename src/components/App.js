@@ -1,36 +1,28 @@
 import React, { Component } from 'react';
-import DGD from '../apis/darkglobedevelopment'
+import { connect } from 'react-redux';
+import { fetchProjects } from '../actions';
+
+import Header from './Header';
+import Filters from './Filters';
+import Projects from './Projects';
 
 class App extends Component {
 
   componentDidMount() {
-
-    // Grab projects from the site
-    const projects = async () => {
-      return await DGD.get('/wp/v2/project', {
-        params: {
-
-        }
-      });
-    }
-
-    projects().then((response) => {
-      console.log(response.data);
-    }).catch((error) => {
-      console.log(error);
-    });
-
+    this.props.fetchProjects();
   }
 
   render() {
     return (
-      <div>
-        <h1>Dark Globe Development</h1>
-        <p>Coming Soon</p>
+      <div id="page">
+        <Header />
+        <Filters />
+        <Projects />
       </div>
     );
   }
 
 }
 
-export default App;
+export default connect(null, {
+  fetchProjects })(App);
