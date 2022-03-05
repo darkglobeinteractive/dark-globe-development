@@ -4,12 +4,16 @@ import fetchImage from './fetchImage';
 
 const fetchProjects = () => async dispatch => {
 
+  // Request project endpoing from cms.darkglobedevelopment.com
   const response = await DGD.get('/project', {});
 
+  // Cycle through each project in the response
   const projects = response.data.map(project => {
 
+    // Call the fetchImage action creator to add the featured image for the project to state
     dispatch(fetchImage(project.id, project.featured_media));
 
+    // Generate the state object for this project
     return {
       'id': project.id,
       'title': project.title.rendered,
@@ -22,6 +26,7 @@ const fetchProjects = () => async dispatch => {
 
   });
 
+  // Call the dispatch function
   dispatch({
     type: PROJECTS_FETCHED,
     payload: projects

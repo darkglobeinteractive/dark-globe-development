@@ -4,15 +4,17 @@ import ProjectItem from './ProjectItem';
 
 class Projects extends React.Component {
 
+  // Generate projects grid
   renderProjects() {
     return this.props.projects.map((project, index) => {
       return (
-        <ProjectItem key={index} title={project.title} />
+        <ProjectItem key={index} project={project} />
       );
     });
   }
 
   render() {
+
     return (
       <div className="projects">
         <div className="content">
@@ -20,6 +22,7 @@ class Projects extends React.Component {
         </div>
       </div>
     );
+    
   }
 
 }

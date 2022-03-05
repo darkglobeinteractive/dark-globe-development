@@ -1,9 +1,14 @@
 import React from 'react';
 
-const ProjectItem = props => {
+const ProjectItem = ({ project }) => {
   return (
     <div className="project-item">
-      {props.title}
+      <div className="wrap">
+        <h2 className="title">{project.title}</h2>
+        <div
+          className="excerpt"
+          dangerouslySetInnerHTML={{__html: project.excerpt}} />
+      </div>
     </div>
   );
 }

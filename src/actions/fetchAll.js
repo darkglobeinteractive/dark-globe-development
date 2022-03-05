@@ -1,12 +1,10 @@
 import _ from 'lodash';
-import fetchImages from './fetchImages';
 import fetchProjects from './fetchProjects';
 
+// This single action creator will populate state on App rendering
 const fetchAll = () => async (dispatch, getState) => {
 
   await dispatch(fetchProjects());
-
-  
 
 }
 

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchProjects } from '../actions';
+import { fetchAll } from '../actions';
 
 import Header from './Header';
 import Filters from './Filters';
@@ -9,7 +9,10 @@ import Projects from './Projects';
 class App extends Component {
 
   componentDidMount() {
-    this.props.fetchProjects();
+
+    // Call the primary fetchAll action creator to populate projects state
+    this.props.fetchAll();
+
   }
 
   render() {
@@ -24,5 +27,4 @@ class App extends Component {
 
 }
 
-export default connect(null, {
-  fetchProjects })(App);
+export default connect(null, { fetchAll })(App);
