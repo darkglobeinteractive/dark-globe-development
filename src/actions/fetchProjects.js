@@ -2,7 +2,7 @@ import { PROJECTS_FETCHED } from './types';
 import DGD from '../apis/darkglobedevelopment';
 import fetchImage from './fetchImage';
 
-const fetchProjects = () => async dispatch => {
+const fetchProjects = () => async (dispatch, getState) => {
 
   // Request project endpoing from cms.darkglobedevelopment.com
   const response = await DGD.get('/project', {});
