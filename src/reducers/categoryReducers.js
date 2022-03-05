@@ -1,3 +1,4 @@
+import { CATS_FETCHED } from '../actions/types';
 /*
 categories will look like:
 categories = [
@@ -12,6 +13,10 @@ When the category buttons are clicked on the projects listing page, it toggles '
 */
 export default (categories = [], action) => {
 
-  return categories;
+  if (action.type === CATS_FETCHED) {
+    return action.payload;
+  } else {
+    return categories;
+  }
 
 };
