@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { fetchAll } from '../actions';
 
 import Header from './Header';
-import Filters from './Filters';
+import CategoryCloud from './CategoryCloud';
 import Projects from './Projects';
 
 class App extends Component {
@@ -19,7 +19,7 @@ class App extends Component {
     return (
       <div id="page">
         <Header />
-        <Filters />
+        <CategoryCloud />
         <Projects />
       </div>
     );

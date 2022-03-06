@@ -7,14 +7,12 @@ const fetchImages = (project_id, image_id) => async dispatch => {
   // Request media endpoint from cms.darkglobedevelopment.com
   const response = await DGD.get(`/media/${image_id}`, {});
 
-  // console.log(response);
-
   // Call the dispatch function
   dispatch({
     type: IMAGE_FETCHED,
     payload: {
       'project_id': project_id,
-      'image': response.data.media_details.sizes.large.source_url
+      'image': response.data.media_details.sizes.medium_large.source_url
     }
   });
 
