@@ -1,6 +1,8 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { setProjectCategory } from '../actions';
 
-const ProjectItem = ({ project, cats }) => {
+const ProjectItem = ({ project, cats, setProjectCategory }) => {
 
   // Cycle through each category associated with the project
   const renderedCats = project.category_ids.map((cat, index) => {
@@ -8,9 +10,9 @@ const ProjectItem = ({ project, cats }) => {
     // Create a variable of the category from the {cats} prop
     const this_category = cats[cat][0];
 
-    // Return a category items
+    // Return a category item
     return (
-      <a key={index} href="#" className="cat">{this_category.title}</a>
+      <button key={index} className="ui button tiny" onClick={() => setProjectCategory(this_category.id)}>{this_category.title}</button>
     );
 
   });
@@ -31,4 +33,6 @@ const ProjectItem = ({ project, cats }) => {
 
 }
 
-export default ProjectItem;
+export default connect(null, {
+  setProjectCategory
+})(ProjectItem);

@@ -19,6 +19,7 @@ class Projects extends React.Component {
 
     const { projects, cats } = this.props;
 
+    // Return a loading screen if the API hasn't populated state, yet
     if (projects === 0 || cats.length === 0) {
       return (
         <div>Loading</div>

@@ -1,11 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { setCategories } from '../actions';
+import { resetCategories, setCategories } from '../actions';
 
-const CategoryCloud = ({ cats, filtering, setCategories }) => {
+const CategoryCloud = ({ cats, filtering, resetCategories, setCategories }) => {
 
   // Create the category cloud
-  const renderedFilters = cats.map((cat, index) => {
+  const renderedFilters = cats.map((cat, index, array) => {
 
     let buttonClasses = `ui button`;
     let icon = <></>;
@@ -22,8 +22,9 @@ const CategoryCloud = ({ cats, filtering, setCategories }) => {
       <button key={index} className={buttonClasses} onClick={() => setCategories(cat.id)}>
         {icon}
         {cat.title}
-        </button>
+      </button>
     );
+
   });
 
   // If no categories exist, yet, return a fragment to avoid an error
@@ -35,6 +36,9 @@ const CategoryCloud = ({ cats, filtering, setCategories }) => {
     <div className="filters">
       <div className="content">
         {renderedFilters}
+        <button class={`ui button${filtering ? ` red` : ` disabled`}`} onClick={() => resetCategories()}>
+          Reset Filters
+        </button>
       </div>
     </div>
   );
@@ -49,5 +53,6 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps, {
+  resetCategories,
   setCategories
 })(CategoryCloud);

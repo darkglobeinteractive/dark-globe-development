@@ -53,7 +53,7 @@ const setCategories = id => {
           payload: false
         });
       }
-      
+
     }
 
     // Finally, set the categories

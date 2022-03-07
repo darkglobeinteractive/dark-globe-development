@@ -1,4 +1,4 @@
-import { CATS_FETCHED, SET_CATS } from '../actions/types';
+import { CATS_FETCHED, RESET_CATS, SET_CATS } from '../actions/types';
 /*
 categories will look like:
 categories = [
@@ -18,7 +18,10 @@ export default (categories = [], action) => {
     return action.payload;
 
   // We have clicked a category button, --BUT-- the 'active' value of ALL items were the same, so we're resetting
-  } else if (action.type === SET_CATS && action.payload.resetCats) {
+  } else if (
+    (action.type === SET_CATS && action.payload.resetCats) ||
+    action.type === RESET_CATS
+  ) {
     return categories.map(cat => {
       return {...cat, active: true}
     });
