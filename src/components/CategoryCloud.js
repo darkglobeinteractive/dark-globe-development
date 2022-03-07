@@ -36,7 +36,7 @@ const CategoryCloud = ({ cats, filtering, resetCategories, setCategories }) => {
     <div className="filters">
       <div className="content">
         {renderedFilters}
-        <button class={`ui button${filtering ? ` red` : ` disabled`}`} onClick={() => resetCategories()}>
+        <button className={`ui button red${filtering ? `` : ` disabled`}`} onClick={() => resetCategories()}>
           Reset Filters
         </button>
       </div>

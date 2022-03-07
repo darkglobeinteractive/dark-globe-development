@@ -17,7 +17,8 @@ const fetchProjects = () => async (dispatch, getState) => {
     return {
       'id': project.id,
       'title': project.title.rendered,
-      'link': project.acf.project_link,
+      'project_link': project.acf.project_link,
+      'project_source': project.acf.project_source,
       'ia': project.acf.project_ia,
       'excerpt': project.excerpt.rendered,
       'content': project.content.rendered,

@@ -10,7 +10,7 @@ const fetchAll = () => async (dispatch, getState) => {
   await dispatch(fetchProjects());
 
   // Use lodash to create a unique set of categories
-  const cats = _.uniq(_.flatten(getState().projects.map((project, index, array) => project.category_ids )));
+  const cats = _.uniq(_.flatten(getState().projects.map(project => project.category_ids )));
 
   // Fetch the category information from the API
   dispatch(fetchCategories(cats));
