@@ -1,6 +1,6 @@
-import { SET_CATS, SET_FILTERING } from './types';
-
 // One of the category buttons in a project grid item was clicked
+import { SET_CATS, SET_FILTERING, SET_PROJECTS } from './types';
+
 const setProjectCategory = id => {
 
   return dispatch => {
@@ -19,6 +19,12 @@ const setProjectCategory = id => {
         filtered: false,
         resetCats: false
       }
+    });
+
+    // Set projects by sending along active category IDs
+    dispatch({
+      type: 'SET_PROJECTS',
+      payload: [id]
     });
 
   }

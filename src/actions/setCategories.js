@@ -1,4 +1,5 @@
-import { SET_CATS, SET_FILTERING } from './types';
+// One of the category buttons in the CategoryCloud was clicked
+import { SET_CATS, SET_FILTERING, SET_PROJECTS } from './types';
 
 const setCategories = id => {
 
@@ -64,6 +65,22 @@ const setCategories = id => {
         filtered,
         resetCats
       }
+    });
+
+    // Create an empty array to contain list of active category IDs
+    const cats = [];
+
+    // Go through each category and return ID if category is active
+    getState().categories.forEach(cat => {
+      if (cat.active) {
+        cats.push(cat.id);
+      }
+    });
+
+    // Set projects by sending along active category IDs
+    dispatch({
+      type: 'SET_PROJECTS',
+      payload: cats
     });
 
   }

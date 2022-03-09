@@ -22,7 +22,8 @@ const fetchProjects = () => async (dispatch, getState) => {
       'ia': project.acf.project_ia,
       'excerpt': project.excerpt.rendered,
       'content': project.content.rendered,
-      'category_ids': project.project_category
+      'category_ids': project.project_category,
+      'active': true
     }
 
   });
