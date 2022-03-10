@@ -1,0 +1,39 @@
+/* GLOBAL + SEMANTIC UI OVERRIDES ------------------------------- */
+a {
+  color: #db2828;
+  text-decoration: underline;
+}
+a:hover {
+  color: #db2828;
+  text-decoration: none;
+}
+
+/* HEADER ------------------------------------------------------- */
+#header { }
+#header h1 {
+  margin: 20px 0;
+}
+
+/* FILTERS ------------------------------------------------------ */
+#filters {
+  margin: 0 0 10px;
+}
+#filters .ui.button {
+  margin: 0 10px 10px 0;
+}
+
+/* PROJECT GRID ------------------------------------------------- */
+#project-grid { }
+#project-grid .project-item .thumbnail img {
+  display: block;
+  max-width: 100%;
+}
+
+/* PROJECT ITEMS ------------------------------------------------ */
+.project-item { }
+.project-item .excerpt {
+  margin: 0 0 1.5em;
+}
+.project-item .cats .ui.button {
+  margin: 0 5px 5px 0;
+}

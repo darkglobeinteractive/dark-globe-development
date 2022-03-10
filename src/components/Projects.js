@@ -31,10 +31,8 @@ class Projects extends React.Component {
     }
 
     return (
-      <div className="projects">
-        <div className="content">
-          {this.renderProjects()}
-        </div>
+      <div id="project-grid" className="ui stackable three column grid">
+        {this.renderProjects()}
       </div>
     );
 
