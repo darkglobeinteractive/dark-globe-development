@@ -24,16 +24,25 @@ a:hover {
 
 /* PROJECT GRID ------------------------------------------------- */
 #project-grid { }
-#project-grid .project-item .thumbnail img {
-  display: block;
-  max-width: 100%;
-}
 
 /* PROJECT ITEMS ------------------------------------------------ */
 .project-item { }
-.project-item .excerpt {
-  margin: 0 0 1.5em;
+.project-item .thumbnail {
+  margin: 0 0 10px;
+}
+.project-item .thumbnail img {
+  display: block;
+  max-width: 100%;
+}
+.project-item h2.title {
+  margin: 0 0 15px;
+}
+.project-item .cats {
+  margin: 0 0 10px;
 }
 .project-item .cats .ui.button {
   margin: 0 5px 5px 0;
+}
+.project-item .excerpt {
+  margin: 0 0 15px;
 }

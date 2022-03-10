@@ -12,7 +12,7 @@ const fetchImages = (project_id, image_id) => async dispatch => {
     type: IMAGE_FETCHED,
     payload: {
       'project_id': project_id,
-      'image': response.data.media_details.sizes.medium_large.source_url
+      'url': response.data.media_details.sizes.medium_large.source_url
     }
   });
 

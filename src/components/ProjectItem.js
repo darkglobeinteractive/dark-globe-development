@@ -18,7 +18,7 @@ const ProjectItem = ({ project, cats, setProjectCategory, thumbnail }) => {
   });
 
   const renderThumb = thumbnail.map((img, index) => {
-    return <img key={index} src={img.image} />
+    return <img key={index} src={img.url} />
   });
 
   return (
@@ -28,12 +28,13 @@ const ProjectItem = ({ project, cats, setProjectCategory, thumbnail }) => {
           {renderThumb}
         </div>
         <h2 className="title">{project.title}</h2>
-        <div
-          className="excerpt"
-          dangerouslySetInnerHTML={{__html: project.excerpt}} />
         <div className="cats">
           {renderedCats}
         </div>
+        <div
+          className="excerpt"
+          dangerouslySetInnerHTML={{__html: project.excerpt}} />
+        <button className="fluid ui button" data-id={project.id}>View Project Details</button>
       </div>
     </div>
   );
