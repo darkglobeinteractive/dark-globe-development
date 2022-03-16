@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { setProjectCategory } from '../actions';
 
-const ProjectItem = ({ project, cats, setProjectCategory, thumbnail }) => {
+const ProjectItem = ({ project, cats, setProjectCategory, thumbnail, ia_url }) => {
 
   // Cycle through each category associated with the project
   const renderedCats = project.category_ids.map((cat, index) => {
@@ -21,6 +21,10 @@ const ProjectItem = ({ project, cats, setProjectCategory, thumbnail }) => {
     return <img key={index} src={img.url} />
   });
 
+  const renderIA = ia_url.map((ia, index) => {
+    return <a key={index} className="fluid ui button cta" href={ia.url} target="_blank">View Project Planning</a>
+  });
+
   return (
     <div className="column project-item">
       <div className="ui segment">
@@ -34,7 +38,13 @@ const ProjectItem = ({ project, cats, setProjectCategory, thumbnail }) => {
         <div
           className="excerpt"
           dangerouslySetInnerHTML={{__html: project.excerpt}} />
-        <button className="fluid ui button" data-id={project.id}>View Project Details</button>
+        {project.project_link &&
+          <a className="fluid ui button cta" href={project.project_link} target="_blank">View Project</a>
+        }
+        {project.project_source &&
+          <a className="fluid ui button cta" href={project.project_source} target="_blank">View Source (GitHub)</a>
+        }
+        {renderIA}
       </div>
     </div>
   );
@@ -43,7 +53,8 @@ const ProjectItem = ({ project, cats, setProjectCategory, thumbnail }) => {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    thumbnail: state.images.filter(img => img.project_id === ownProps.project.id)
+    thumbnail: state.images.filter(img => img.project_id === ownProps.project.id),
+    ia_url: state.media.filter(item => item.project_id === ownProps.project.id)
   }
 }
 

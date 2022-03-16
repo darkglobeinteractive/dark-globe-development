@@ -46,3 +46,6 @@ a:hover {
 .project-item .excerpt {
   margin: 0 0 15px;
 }
+.project-item .ui.button.cta + .ui.button.cta {
+  margin-top: 5px;
+}
