@@ -1,5 +1,6 @@
 import { RESET_CATS, SET_FILTERING } from '../actions/types';
 
+// The global.cats_filtered state is a boolean variable indicating whether or not the projects are being filtered
 const INITIAL_STATE = {
   'cats_filtered': false
 }

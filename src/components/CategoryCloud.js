@@ -7,8 +7,11 @@ const CategoryCloud = ({ cats, filtering, resetCategories, setCategories }) => {
   // Create the category cloud
   const renderedFilters = cats.map((cat, index, array) => {
 
+    // Create default classes and icon for this category button
     let buttonClasses = `ui button`;
     let icon = <></>;
+
+    // If the app is being filtered, set the classes and icon accordingly
     if (filtering) {
       buttonClasses += ` right labeled icon`;
       const iconClasses = `right icon ${cat.active ? `times` : `plus`}`;
@@ -26,11 +29,6 @@ const CategoryCloud = ({ cats, filtering, resetCategories, setCategories }) => {
     );
 
   });
-
-  // If no categories exist, yet, return a fragment to avoid an error
-  if (cats.length === 0) {
-    return <React.Fragment />
-  }
 
   return (
     <div id="filters">

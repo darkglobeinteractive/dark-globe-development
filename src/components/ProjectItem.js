@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { setProjectCategory } from '../actions';
 
+// We are destructuring the props object here
 const ProjectItem = ({ project, cats, setProjectCategory, thumbnail, ia_url }) => {
 
   // Cycle through each category associated with the project
@@ -10,7 +11,7 @@ const ProjectItem = ({ project, cats, setProjectCategory, thumbnail, ia_url }) =
     // Create a variable of the category from the {cats} prop
     const this_category = cats[cat][0];
 
-    // Return a category item
+    // Return a category item, clicking the category calls the setProjectCategory() action creator
     return (
       <button key={index} className="ui button tiny" onClick={() => setProjectCategory(this_category.id)}>{this_category.title}</button>
     );

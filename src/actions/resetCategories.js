@@ -19,7 +19,7 @@ const resetCategories = () => {
 
     // Set projects by sending along active category IDs
     dispatch({
-      type: 'SET_PROJECTS',
+      type: SET_PROJECTS,
       payload: cats
     });
 

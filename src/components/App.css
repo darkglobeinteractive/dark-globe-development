@@ -8,6 +8,16 @@ a:hover {
   text-decoration: none;
 }
 
+/* SPINNER ------------------------------------------------------ */
+#spinner {
+  position: absolute;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+}
+
 /* HEADER ------------------------------------------------------- */
 #header { }
 #header h1 {
